@@ -1,4 +1,5 @@
 export type Travel = {
+    id: string;
     name: string;
     departureDate: Date;
     returnDate: Date;
