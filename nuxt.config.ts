@@ -5,5 +5,11 @@ export default defineNuxtConfig({
       title: process.env.NUXT_PAGE_TITLE,
     }
   },
+  modules: [
+    '@nuxtjs/tailwindcss'
+  ],
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css',
+  },
   devtools: { enabled: true }
 })
