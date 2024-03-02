@@ -1,21 +1,34 @@
 <script setup lang="ts">
 import {useTravelStore} from "~/stores/travelStore";
 import Rating from "~/components/shared/Rating.vue";
+import Footer from "~/components/shared/Footer.vue";
+import {convertDateToString} from "~/utils/string.utils";
 
 
-const travelStore = useTravelStore()
+const travelStore = useTravelStore();
+const router = useRouter()
+const goToDetails = (id: string) => {
+  router.push({path: `travels/${id}`})
+}
+
+
 </script>
 <template>
   <section class="travels-page">
     <div class="container px-5 py-5 mx-auto">
       <div class="flex flex-wrap m-4">
-        <div v-for="(travel, index) of travelStore.travels" :key="travel.id" class="travels-page__travel p-4 md:w-1/3" >
+        <div
+            v-for="(travel, index) of travelStore.travels"
+            :key="travel.id"
+            class="travels-page__travel p-4 md:w-1/3"
+            @click="goToDetails(travel.id)"
+        >
           <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
             <div class="w-full">
               <div class="w-full flex p-2">
                 <div class="pl-2 pt-2">
                   <p class="font-bold">{{ travel.name }}</p>
-                  <p class="text-xs">{{ travel.departureDate }}</p>
+                  <p class="text-xs">{{ convertDateToString(travel.departureDate) }}</p>
                 </div>
               </div>
             </div>
@@ -45,4 +58,5 @@ const travelStore = useTravelStore()
       </div>
     </div>
   </section>
+  <Footer />
 </template>

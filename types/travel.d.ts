@@ -7,4 +7,5 @@ export type Travel = {
     description: string;
     price: number;
     rating: number;
+    locality: string;
 }
