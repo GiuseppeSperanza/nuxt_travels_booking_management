@@ -32,6 +32,19 @@ const total = (initialPrice * days) - Math.round(getDiscount(initialPrice * days
         </div>
       </div>
       <!-- block -->
+      <div class="tour-content-block flex justify-center	">
+        <div class="tour-reviews-overall">
+        <div class="tour-reviews-content">
+          <div class="tour-reviews-overall-title">
+            Overall Rating
+          </div>
+          <div class="tour-reviews-overall-text">
+            {{ selectedTravel.rating > 3 ? 'Excellent' : 'Passable' }}
+          </div>
+          <div class="tour-reviews-overall-rating">{{ selectedTravel.rating }}</div>
+        </div>
+      </div>
+      </div>
     </div>
     <!-- content -->
 
@@ -95,9 +108,7 @@ const total = (initialPrice * days) - Math.round(getDiscount(initialPrice * days
             <div class="tour-receipt-detail-title">Service fee</div>
             <div class="tour-receipt-detail-price">&euro;0</div>
           </div>
-          <div
-              class="tour-receipt-detail-item tour-receipt-detail-total"
-          >
+          <div class="tour-receipt-detail-item tour-receipt-detail-total">
             <div class="tour-receipt-detail-title">Total</div>
             <div class="tour-receipt-detail-price">&euro;{{total}}</div>
           </div>

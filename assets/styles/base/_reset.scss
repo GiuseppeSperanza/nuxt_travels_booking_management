@@ -39,9 +39,7 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-main {
-  background: var(--bg-color);
-}
+
 [hidden] {
   display: none;
 }
@@ -123,8 +121,7 @@ main {
 
 body{
   --tw-bg-opacity: 1;
-  background-color: rgb(248 250 252 / var(--tw-bg-opacity));
-  padding-bottom: 65px;
+  background: var(--bg-color);
 }
 
 body *::-moz-selection{
@@ -155,13 +152,12 @@ body::selection{
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-@media (min-width: 992px){
-  body{
-    padding-bottom: 0px;
-  }
-}
 
 .container{
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+}
+
+main {
+
 }
