@@ -3,6 +3,7 @@ import {useTravelStore} from "~/stores/travelStore";
 import Rating from "~/components/shared/Rating.vue";
 import Footer from "~/components/shared/Footer.vue";
 import {convertDateToString} from "~/utils/string.utils";
+import TravelActions from "~/components/travels/TravelActions.vue";
 
 
 const travelStore = useTravelStore();
@@ -10,12 +11,13 @@ const router = useRouter()
 const goToDetails = (id: string) => {
   router.push({path: `travels/${id}`})
 }
-
+const { isCreatingTravel } = storeToRefs(travelStore);
 
 </script>
 <template>
   <section class="travels-page">
     <div class="container px-5 py-5 mx-auto">
+      <TravelActions />
       <div class="flex flex-wrap m-4">
         <div
             v-for="(travel, index) of travelStore.travels"
@@ -59,4 +61,16 @@ const goToDetails = (id: string) => {
     </div>
   </section>
   <Footer />
+  <div v-if="isCreatingTravel" class="overlay"></div>
 </template>
+<style scoped lang="scss">
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+}
+</style>

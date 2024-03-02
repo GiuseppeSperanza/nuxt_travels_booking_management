@@ -12,8 +12,10 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "@types/uuid": "^9.0.8",
+    "@vuepic/vue-datepicker": "^8.2.0",
     "nuxt": "^3.10.3",
     "pinia": "^2.1.7",
+    "v-calendar": "^3.1.2",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0"
   },

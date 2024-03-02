@@ -9,6 +9,9 @@ export default defineNuxtConfig({
     }
   },
   css: ['@/assets/scss/main.scss'],
+  plugins: [
+
+  ],
   modules: [
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
@@ -16,5 +19,17 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/tailwind.css',
   },
-  devtools: { enabled: true }
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/styles/base/_variables.scss" as *;'
+        }
+      }
+    }
+  },
+  devtools: { enabled: false },
+  build: {
+    transpile: ['@vuepic/vue-datepicker']
+  }
 })

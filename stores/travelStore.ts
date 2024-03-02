@@ -3,11 +3,13 @@ import type {Travel} from "~/types/travel";
 interface TravelState {
     travels: Travel[];
     selectedTravel: Travel | null;
+    isCreatingTravel: boolean;
 }
 
 const initialState = {
     travels: [],
-    selectedTravel: null
+    selectedTravel: null,
+    isCreatingTravel: false,
 }
 export const useTravelStore = defineStore({
     id: 'travelStore',
@@ -23,7 +25,10 @@ export const useTravelStore = defineStore({
         setupStore(travels: Travel[]) {
             this.clearStore();
             this.travels = travels;
-        }
+        },
+        addNewTravel() {
+            this.isCreatingTravel = ! this.isCreatingTravel;
+        },
     },
     getters: {
 
