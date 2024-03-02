@@ -1,0 +1,30 @@
+.welcome-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  &__title {
+    background: linear-gradient(45deg, #fb28cd, #7c65d7);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 2.5rem;
+  }
+}
+.circle {
+  width: 450px;
+  height: 450px;
+  background: linear-gradient(to bottom, #fa39ad 40%, #fe6c4c 50%);
+  filter: blur(120px);
+  position: absolute;
+  bottom: 0;
+
+  @media(max-width: $mobileSize) {
+    width: 200px;
+    height: 200px;
+  }
+}

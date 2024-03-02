@@ -1,0 +1,26 @@
+.travels-page {
+  background: var(--bg-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+
+  &__travel {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__image {
+    width: 100px;
+  }
+  &__description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @media(max-width: $mobileSize) {
+      width: 200px;
+    }
+
+  }
+}

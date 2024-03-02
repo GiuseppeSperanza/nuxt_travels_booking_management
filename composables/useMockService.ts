@@ -6,13 +6,13 @@ export function travelsMock() {
     const total = 9;
     const travels: Travel[] = [];
     for (let index = 1; index <= total; index++) {
-        const initialDate = (days: number = 1): Date => faker.date.soon({days});
+        const initialDate = (days: number = 0): Date => faker.date.soon({days});
         const travel: Travel = {
             id: uuidv4(),
             name: `Viaggio numero: ${index}`,
-            departureDate: initialDate(),
+            departureDate: initialDate(index),
             returnDate: initialDate(7),
-            picture: `~/assets/images/tour-${index}`,
+            picture: `/images/tour-${index}.jpeg`,
             description: faker.lorem.text(),
             price: Number(faker.commerce.price()),
             rating: Number(faker.commerce.price({ min: 1, max: 5 }))

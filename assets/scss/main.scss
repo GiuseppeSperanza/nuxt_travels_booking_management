@@ -1,7 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 //Base
+@import '../styles/base/variables';
 @import '../styles/base/reset';
+
+//Pages
+@import '../styles/pages/welcome';
+@import '../styles/pages/travels';
 
 //Components
 @import '../styles/components/header';
