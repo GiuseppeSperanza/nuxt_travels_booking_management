@@ -6,9 +6,11 @@ import {getTwoDates} from "~/utils/string.utils";
 
 export function createTravel(index: number): Travel {
     const [firstDate, secondDate] = getTwoDates();
+    const name = Math.floor(Math.random() * (1000 - index + 1));
+
     return {
         id: uuidv4(),
-        name: `Viaggio numero: ${index}`,
+        name: `Viaggio numero: ${name}`,
         departureDate: firstDate,
         returnDate: secondDate,
         picture: `/images/tour-${index}.jpeg`,

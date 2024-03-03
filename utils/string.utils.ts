@@ -7,8 +7,9 @@ export const getRandomNumber = () => {
 }
 
 export const getTwoDates = () => {
-    const firstDate = new Date();
     const randomDays = Math.floor(Math.random() * 10) + 1;
+    const firstDate = new Date();
+    firstDate.setDate(firstDate.getDate() + randomDays);
     const secondDate = new Date(firstDate.getTime() + randomDays * 24 * 60 * 60 * 1000); // Aggiungi giorni casuali alla prima data
 
     return [firstDate, secondDate];

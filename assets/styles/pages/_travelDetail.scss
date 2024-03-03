@@ -1265,5 +1265,6 @@ span.tour-amount-old{
 
 .add-new-travel {
   padding: 0 2rem;
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
