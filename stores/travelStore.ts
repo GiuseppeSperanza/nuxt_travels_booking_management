@@ -12,6 +12,7 @@ interface TravelState {
     travels: Travel[];
     selectedTravel: Travel | null;
     isCreatingTravel: boolean;
+    isUpdatingTravel: boolean;
     selectedSort: TravelsSort | null;
 }
 
@@ -20,6 +21,7 @@ const initialState = {
     selectedTravel: null,
     selectedSort: null,
     isCreatingTravel: false,
+    isUpdatingTravel: false,
 }
 export const useTravelStore = defineStore({
     id: 'travelStore',
@@ -32,6 +34,17 @@ export const useTravelStore = defineStore({
         },
         setSelectedTravel(travel: Travel) {
             this.selectedTravel = travel;
+        },
+        updateTravel() {
+            console.log('update travel')
+            useToast().success('Travel Updated with success!', { position: 'top-right', duration: 3000});
+            this.isUpdatingTravel = false;
+            useRouter().go(-1);
+        },
+        deleteTravel() {
+            this.travels = this.travels.filter(travel => travel.id !== this.selectedTravel!.id);
+            useToast().success('Travel Deleted with success!', { position: 'top-right', duration: 3000});
+            useRouter().go(-1);
         },
         setupStore(travels: Travel[]) {
             this.clearStore();

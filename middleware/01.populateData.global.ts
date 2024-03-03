@@ -8,11 +8,12 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
 
     if(isTravelPage(to.path)) {
         if(to.name === travelRoot) {
-            const { data } = await useAsyncData<Travel[]>(travelRoot, () => $fetch('/api/getTravels'));
+            const { data } = await useAsyncData<Travel[]>(() => $fetch('/api/getTravels'));
+         //   const { data } = await useAsyncData<Travel[]>(travelRoot, () => $fetch('/api/getTravels'));
             useTravelStore().setupStore(data.value!)
         }
         if(to.name === travelDetails) {
-            const { data } = await useAsyncData<Travel>(travelDetails, () => $fetch('/api/getTravel'));
+            const { data } = await useAsyncData<Travel>(() => $fetch('/api/getTravel'));
             useTravelStore().setSelectedTravel(data.value!);
         }
     }

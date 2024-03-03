@@ -150,6 +150,10 @@
   &__image {
     height: 500px;
 
+    &--small {
+      height: 200px;
+    }
+
     @media(max-width: $mobileSize) {
       height: 300px;
     }
@@ -1267,4 +1271,10 @@ span.tour-amount-old{
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+.tour-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
 }
