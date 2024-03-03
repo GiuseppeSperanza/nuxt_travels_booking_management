@@ -12,3 +12,13 @@
     white-space: nowrap;
   }
 }
+
+.add-new-booking {
+  display: flex;
+  justify-content: space-between;
+
+  &__title {
+    font-weight: bold;
+    font-size: 2rem;
+  }
+}

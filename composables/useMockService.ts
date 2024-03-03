@@ -55,7 +55,7 @@ export function createBooking(): Booking {
 }
 
 export function bookingsMock(): Booking[] {
-    const total = Math.floor(Math.random() * 9) + 1
+    const total = Math.floor(Math.random() * 20) + 1
     const bookings: Booking[] = [];
     for (let index = 1; index <= total; index++) {
         bookings.push(createBooking());
