@@ -1,8 +1,14 @@
 <script setup lang="ts">
 
-import {useTravelStore} from "~/stores/travelStore";
+interface Props {
+  disabled: boolean;
+}
 
-const travelStore = useTravelStore()
+const props = withDefaults(defineProps<Props>(), {
+  disabled: false
+});
+
+
 </script>
 
 <template>
@@ -22,11 +28,14 @@ const travelStore = useTravelStore()
      <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse modal-new-travel__buttons">
        <button
            type="button"
-           class="mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2  sm:mt-0 sm:w-auto sm:text-sm">
+           class=" mt-3 w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-green-600 text-base font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2  sm:mt-0 sm:w-auto sm:text-sm"
+          :class="props.disabled ? 'cursor-not-allowed opacity-50' : ''"
+           @click="$emit('on-confirm')"
+       >
          Create Travel
        </button>
        <button
-           @click="travelStore.addNewTravel"
+           @click="$emit('on-close')"
            type="button"
            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
          Cancel
@@ -39,10 +48,10 @@ const travelStore = useTravelStore()
 .modal-new-travel {
   position: absolute;
   width: 50%;
-  top: 40%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 80%;
+  height: 1000px;
   z-index: 9999;
 
   &__content {
@@ -61,13 +70,13 @@ const travelStore = useTravelStore()
 
   @media(max-width: $mobileSize) {
     width: 90%;
-    height: 700px;
+    height: 900px;
     top: 10%;
   }
 
   &__buttons {
     position: absolute;
-    bottom: 5rem;
+    bottom: 2rem;
     display: flex;
     justify-content: center;
     width: 90%;

@@ -23,10 +23,10 @@ const { toggleMenu } = globalStore;
       <!-- menu-toggle -->
 
       <ul class="header-menu">
-        <NuxtLink to="travels" class="header-menu-item">
+        <NuxtLink to="/travels" class="header-menu-item">
           Travels
         </NuxtLink>
-        <NuxtLink to="booking" class="header-menu-item">
+        <NuxtLink to="/booking" class="header-menu-item">
           Booking
         </NuxtLink>
       </ul>

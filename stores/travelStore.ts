@@ -1,4 +1,7 @@
 import type {Travel} from "~/types/travel";
+import {useToast} from "vue-toast-notification";
+import {createTravel} from "~/composables/useMockService";
+
 
 interface TravelState {
     travels: Travel[];
@@ -27,7 +30,10 @@ export const useTravelStore = defineStore({
             this.travels = travels;
         },
         addNewTravel() {
-            this.isCreatingTravel = ! this.isCreatingTravel;
+            this.isCreatingTravel = false;
+            const newTravel = createTravel(Math.floor(Math.random() * 9) + 1);
+            this.travels.unshift(newTravel);
+            useToast().success('Travel Added with success!', { position: 'top-right', duration: 3000});
         },
     },
     getters: {
