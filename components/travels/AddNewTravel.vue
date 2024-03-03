@@ -45,7 +45,6 @@ const isCreateDisabled = computed(() => Boolean(departureDate.value)
 const createTravel = () => {
   clearForm();
   travelStore.addNewTravel();
-
 }
 
 </script>

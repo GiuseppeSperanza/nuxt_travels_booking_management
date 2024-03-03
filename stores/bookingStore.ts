@@ -1,14 +1,15 @@
 import type {Booking} from "~/types/booking";
-import type {Travel} from "~/types/travel";
 
 interface BookingState {
     bookings: Booking[];
+    isCreatingBooking: boolean;
     selectedBooking: Booking | null;
 }
 
 const initialState = {
     bookings: [],
     selectedBooking: null,
+    isCreatingBooking: false,
 }
 export const useBookingStore = defineStore({
     id: 'bookingStore',
@@ -22,8 +23,5 @@ export const useBookingStore = defineStore({
             this.bookings = [];
             this.selectedBooking = null;
         },
-        getBookingsList() {
-            console.log('get bookings list')
-        }
     }
 })
