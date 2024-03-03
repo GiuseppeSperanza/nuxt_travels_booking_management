@@ -9,3 +9,10 @@ export enum PaymentStatus {
     pending = 'Pending',
     overdue = 'Overdue',
 }
+
+export enum TravelsSort {
+    bestRating = 'Best Rating',
+    newest = 'Newest',
+    priceLTH = 'Price Low To High',
+    priceHTL = 'Price High to Low',
+}

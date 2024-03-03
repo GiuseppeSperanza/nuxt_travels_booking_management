@@ -1,13 +1,8 @@
 import type {Travel} from "~/types/travel";
 import {useToast} from "vue-toast-notification";
 import {createTravel} from "~/composables/useMockService";
+import {TravelsSort} from "~/utils/constants.utils";
 
-export enum TravelsSort {
-    bestRating = 'Best Rating',
-    newest = 'Newest',
-    priceLTH = 'Price Low To High',
-    priceHTL = 'Price High to Low',
-}
 interface TravelState {
     travels: Travel[];
     selectedTravel: Travel | null;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import {TravelsSort, useTravelStore} from "~/stores/travelStore";
-
+import {useTravelStore} from "~/stores/travelStore";
+import {TravelsSort} from "~/utils/constants.utils";
 const travelStore = useTravelStore();
 
 

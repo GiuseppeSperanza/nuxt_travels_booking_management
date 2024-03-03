@@ -2,6 +2,7 @@
 
 import {convertDateToString} from "~/utils/string.utils";
 import {useTravelStore} from "~/stores/travelStore";
+import Rating from "~/components/shared/Rating.vue";
 const travelStore = useTravelStore();
 const router = useRouter()
 const goToDetails = (id: string) => {
