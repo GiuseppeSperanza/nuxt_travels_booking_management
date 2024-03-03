@@ -5,9 +5,9 @@ export enum PaymentType {
 }
 
 export enum PaymentStatus {
-    paid = 'Paid',
-    pending = 'Pending',
-    overdue = 'Overdue',
+    paid = 'paid',
+    pending = 'pending',
+    overdue = 'overdue',
 }
 
 export enum TravelsSort {

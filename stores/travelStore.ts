@@ -22,6 +22,10 @@ export const useTravelStore = defineStore({
     id: 'travelStore',
     state: (): TravelState => ({ ...initialState }),
     actions: {
+        setupStore(travels: Travel[]) {
+            this.clearStore();
+            this.travels = travels;
+        },
         clearStore() {
             this.travels = [];
             this.selectedTravel = null;
@@ -40,10 +44,6 @@ export const useTravelStore = defineStore({
             this.travels = this.travels.filter(travel => travel.id !== this.selectedTravel!.id);
             useToast().success('Travel Deleted with success!', { position: 'top-right', duration: 3000});
             useRouter().go(-1);
-        },
-        setupStore(travels: Travel[]) {
-            this.clearStore();
-            this.travels = travels;
         },
         addNewTravel() {
             this.isCreatingTravel = false;

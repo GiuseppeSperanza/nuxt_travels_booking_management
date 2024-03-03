@@ -18,9 +18,7 @@ const clearForm = () => {
   travelStore.isUpdatingTravel = false;
 }
 
-const handleFileChange = (event: Event) => {
-
-}
+const handleFileChange = (event: Event) => {}
 
 </script>
 

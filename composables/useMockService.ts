@@ -39,7 +39,6 @@ export function createCustomer(): Customer {
         id: uuidv4(),
     }
 }
-
 export function createBooking(): Booking {
     const paymentStatusKeys = Object.keys(PaymentStatus) as Array<keyof typeof PaymentStatus>;
     const paymentTypeKeys = Object.keys(PaymentType) as Array<keyof typeof PaymentType>;
@@ -53,4 +52,14 @@ export function createBooking(): Booking {
         note: faker.lorem.words({ min: 150, max: 300 }),
         statusPayment: randomPaymentStatusKey as PaymentStatus,
     };
+}
+
+export function bookingsMock(): Booking[] {
+    const total = Math.floor(Math.random() * 9) + 1
+    const bookings: Booking[] = [];
+    for (let index = 1; index <= total; index++) {
+        bookings.push(createBooking());
+    }
+
+    return bookings;
 }
