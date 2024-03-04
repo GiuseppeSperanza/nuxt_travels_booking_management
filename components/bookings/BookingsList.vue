@@ -11,7 +11,7 @@ const getTotal = (travel: Travel) => getDifferenceDate(travel.departureDate, tra
       <div class="inline-block min-w-full shadow-md rounded-lg overflow-hidden">
         <table class="min-w-full leading-normal">
           <thead>
-          <tr>
+            <tr>
             <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
               Client / Travel ID
             </th>
@@ -31,7 +31,7 @@ const getTotal = (travel: Travel) => getDifferenceDate(travel.departureDate, tra
           </tr>
           </thead>
           <tbody>
-          <tr v-for="(booking, index) in bookingStore.bookings">
+            <tr v-for="(booking, index) in bookingStore.bookings">
             <td class="px-5 py-5 bg-white text-sm">
               <div class="flex">
                 <div class="ml-3">

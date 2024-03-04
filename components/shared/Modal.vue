@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
 interface Props {
-  disabled: boolean;
-  isEditing: boolean;
+  disabled?: boolean;
+  isEditing?: boolean;
   isBooking?: boolean;
-  title: string;
-  labelConfirm: string;
+  title?: string;
+  labelConfirm?: string;
 }
 
 const props = withDefaults(defineProps<Props>(), {
