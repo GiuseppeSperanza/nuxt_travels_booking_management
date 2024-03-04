@@ -7,8 +7,7 @@ import type {Booking} from "~/types/booking";
 const bookingStore = useBookingStore()
 
 const { isCreatingBooking } = storeToRefs(bookingStore);
-
-let isDisabled = ref(true);
+const isDisabled = ref(true);
 let newBooking = reactive<Booking>({} as Booking)
 const createBooking = () => {
   bookingStore.createBooking(newBooking);
@@ -24,7 +23,8 @@ const clearForm = () => {
 }
 </script>
 <template>
-  <button @click="bookingStore.isCreatingBooking = true" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  <button @click="bookingStore.isCreatingBooking = true"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     Add Booking
   </button>
   <Modal

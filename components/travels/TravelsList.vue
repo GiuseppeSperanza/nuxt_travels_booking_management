@@ -12,7 +12,7 @@ const goToDetails = (id: string) => {
 <template>
   <div class="flex flex-wrap m-4">
     <div
-        v-for="(travel, index) of travelStore.travels"
+        v-for="travel of travelStore.travels"
         :key="travel.id"
         class="travels-page__travel p-4 md:w-1/3"
         @click="goToDetails(travel.id)"

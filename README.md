@@ -27,7 +27,7 @@ npm run dev
 Build the application for production:
 
 ```bash
-# npm
+# npm 
 npm run build
 
 ```
@@ -35,7 +35,14 @@ npm run build
 Run Tests suite
 
 ```bash
-# npm
 npm run test
+
+```
+
+
+Check Linting 
+
+```bash
+npm run lint
 
 ```

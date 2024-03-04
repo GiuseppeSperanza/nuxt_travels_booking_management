@@ -54,7 +54,7 @@ const onChange = (prevIndex: number, nextIndex: number) => {
       <label for="travels" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Select an Travel</label>
       <select v-model="selectedTravel" id="travels" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
         <option selected>Choose a Travel</option>
-        <option v-for="travel in travelStore.travels" :value="travel">{{ travel.name }}</option>
+        <option v-for="travel in travelStore.travels" :key="travel.id" :value="travel">{{ travel.name }}</option>
       </select>
       <div class="selected-travel-info">
         <p class="selected-travel-info__title">Travel Summary:</p>
@@ -118,7 +118,7 @@ const onChange = (prevIndex: number, nextIndex: number) => {
       <div class="selected-travel-info">
         <p class="selected-travel-info__title">Choose a payment type:</p>
         <select v-model="paymentType" id="paymentType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <option v-for="type in Object.values(PaymentType)" :value="type">{{ type }}</option>
+          <option v-for="type in Object.values(PaymentType)" :key="type" :value="type">{{ type }}</option>
         </select>
       </div>
       <div class="selected-travel-info">
