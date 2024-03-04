@@ -8,6 +8,7 @@ import TravelsList from "~/components/travels/TravelsList.vue";
 const travelStore = useTravelStore();
 const { isCreatingTravel } = storeToRefs(travelStore);
 
+
 const { data } = await useAsyncData<Travel[]>(() => $fetch('/api/getTravels'), {
   server: true,
 });

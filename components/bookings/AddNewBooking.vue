@@ -1,17 +1,25 @@
 <script setup lang="ts">
 import Modal from "~/components/shared/Modal.vue";
 import {useBookingStore} from "~/stores/bookingStore";
+import CreateBookingWizard from "~/components/bookings/CreateBookingWizard.vue";
+import type {Booking} from "~/types/booking";
 
 const bookingStore = useBookingStore()
 
 const { isCreatingBooking } = storeToRefs(bookingStore);
 
+let isDisabled = ref(true);
+let newBooking = reactive<Booking>({} as Booking)
 const createBooking = () => {
-  console.log('createBooking');
+  bookingStore.createBooking(newBooking);
+}
+
+const onCompleteWizard = (isDisabledValue: boolean, newBookingValue: Booking) => {
+  isDisabled.value = isDisabledValue
+  newBooking = newBookingValue
 }
 
 const clearForm = () => {
-  console.log('clearForm');
   bookingStore.isCreatingBooking = false;
 }
 </script>
@@ -21,13 +29,14 @@ const clearForm = () => {
   </button>
   <Modal
       v-if="isCreatingBooking"
-      :disabled="false"
+      :disabled="isDisabled"
       :is-editing="false"
+      :is-booking="true"
       title="Add New Booking"
       labelConfirm="Create Booking"
       @on-confirm="createBooking"
       @on-close="clearForm"
   >
-  WIZARD
+  <CreateBookingWizard @on-complete="onCompleteWizard"/>
   </Modal>
 </template>

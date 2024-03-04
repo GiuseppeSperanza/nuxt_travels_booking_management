@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       ],
     }
   },
-  css: ['@/assets/scss/main.scss', 'vue-toast-notification/dist/theme-default.css'],
+  css: ['@/assets/scss/main.scss', 'vue-toast-notification/dist/theme-default.css', 'vue3-form-wizard/dist/style.css'],
   plugins: [
 
   ],

@@ -37,6 +37,10 @@ export function createCustomer(): Customer {
     return {
         fullName: faker.person.fullName(),
         id: uuidv4(),
+        email: faker.internet.email(),
+        phone: faker.phone.number(),
+        age: Math.floor(Math.random() * (99 - 18 + 1)) + 18,
+        gender: faker.person.sex(),
     }
 }
 export function createBooking(): Booking {

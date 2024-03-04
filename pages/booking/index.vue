@@ -4,13 +4,24 @@ import type {Booking} from "~/types/booking";
 import BookingsList from "~/components/bookings/BookingsList.vue";
 import BookingsActions from "~/components/bookings/BookingsActions.vue";
 import Footer from "~/components/shared/Footer.vue";
+import type {Travel} from "~/types/travel";
+import {useTravelStore} from "~/stores/travelStore";
 
 const bookingStore = useBookingStore();
-const { data } = await useAsyncData<Booking[]>(() => $fetch('/api/getBookings'), {
-  server: true,
-});
-bookingStore.setupStore(data.value!)
+const travelStore = useTravelStore();
 const { isCreatingBooking } = storeToRefs(bookingStore);
+
+const [{ data: bookings }, { data: travels }] = await Promise.all([
+  await useAsyncData<Booking[]>(() => $fetch('/api/getBookings'), {
+    server: true,
+  }),
+  await useAsyncData<Travel[]>(() => $fetch('/api/getTravels'), {
+    server: true,
+  })
+])
+bookingStore.setupStore(bookings.value!);
+travelStore.setupStore(travels.value!);
+
 </script>
 <template>
   <section class="bookings-page">

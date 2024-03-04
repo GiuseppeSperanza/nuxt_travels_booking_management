@@ -1,4 +1,6 @@
 import type {Booking} from "~/types/booking";
+import {useToast} from "vue-toast-notification";
+import {createBooking} from "~/composables/useMockService";
 
 interface BookingState {
     bookings: Booking[];
@@ -23,5 +25,11 @@ export const useBookingStore = defineStore({
             this.bookings = [];
             this.selectedBooking = null;
         },
+        createBooking(newBooking: Booking) {
+            const customerName = newBooking.customer.fullName;
+            useToast().success(`Booking for ${customerName} with success!`, { position: 'top-right', duration: 5000});
+            this.bookings.push(createBooking());
+            this.isCreatingBooking = false;
+        }
     }
 })

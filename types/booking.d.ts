@@ -3,6 +3,10 @@ import {PaymentStatus, type PaymentType} from "~/utils/constants.utils";
 
 export type Customer = {
     fullName: string;
+    email: string;
+    phone: string;
+    age: number;
+    gender: string;
     id: string;
 }
 

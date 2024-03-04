@@ -24,3 +24,8 @@ export const getDifferenceDate = (firstDate: Date, secondDate: Date) => {
 export const getDiscount = (price: number) => {
     return price * 0.1;
 }
+
+export function findKeys<T>(enumObject: T, valore: string): keyof T | undefined {
+    // @ts-ignore
+    return Object.keys(enumObject).find(key => enumObject[key] === valore) as keyof T;
+}

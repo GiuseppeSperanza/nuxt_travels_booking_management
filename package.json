@@ -18,7 +18,8 @@
     "v-calendar": "^3.1.2",
     "vue": "^3.4.19",
     "vue-router": "^4.3.0",
-    "vue-toast-notification": "^3.1.2"
+    "vue-toast-notification": "^3.1.2",
+    "vue3-form-wizard": "^0.2.3"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",

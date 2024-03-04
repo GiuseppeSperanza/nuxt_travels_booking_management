@@ -3,6 +3,7 @@
 interface Props {
   disabled: boolean;
   isEditing: boolean;
+  isBooking?: boolean;
   title: string;
   labelConfirm: string;
 }
@@ -10,6 +11,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   disabled: false,
   isEditing: false,
+  isBooking: false,
   title: 'Add new Travel',
   labelConfirm: 'Create Travel'
 });
@@ -19,7 +21,10 @@ const props = withDefaults(defineProps<Props>(), {
 <template>
   <div
       class="modal-new-travel inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:p-6"
-      :class="props.isEditing ? 'modal-new-travel__is-editing' : ''"
+      :class="[
+          props.isEditing ? 'modal-new-travel__is-editing' : '',
+          props.isBooking ? 'modal-new-travel__is-booking' : ''
+          ]"
   >
    <div class="modal-new-travel__content">
      <div class="sm:flex sm:items-start">
@@ -80,6 +85,12 @@ const props = withDefaults(defineProps<Props>(), {
     width: 90%;
     height: 900px;
     top: 10%;
+  }
+  &__is-booking {
+
+    @media(max-width: $mobileSize) {
+      top: 20%;
+    }
   }
 
   &__is-editing {

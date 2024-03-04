@@ -19,20 +19,3 @@ const travelStore = useTravelStore();
     </ul>
   </div>
 </template>
-<style scoped lang="scss">
-button {
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
-
-  @media(max-width: $mobileSize) {
-    width: 100px;
-  }
-}
-.dropdown-menu {
-  width: 200px;
-}
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-</style>
